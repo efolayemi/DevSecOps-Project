@@ -204,7 +204,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/N4si/DevSecOps-Project.git'
+                git branch: 'main', url: 'https://github.com/efolayemi/DevSecOps-Project.git'
             }
         }
         stage("Sonarqube Analysis") {
@@ -294,7 +294,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/N4si/DevSecOps-Project.git'
+                git branch: 'main', url: 'hhttps://github.com/efolayemi/DevSecOps-Project.git'
             }
         }
         stage("Sonarqube Analysis "){
@@ -332,16 +332,16 @@ pipeline{
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
-                       sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t netflix ."
-                       sh "docker tag netflix nasi101/netflix:latest "
-                       sh "docker push nasi101/netflix:latest "
+                       sh "docker build --build-arg TMDB_V3_API_KEY=61c166f33353064af17eb1c0b1885e08 -t netflix ."
+                       sh "docker tag netflix efolayemi/netflix:latest "
+                       sh "docker push efolayemi/netflix:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image nasi101/netflix:latest > trivyimage.txt" 
+                sh "trivy image efolayemi/netflix:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
